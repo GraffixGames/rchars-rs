@@ -1,6 +1,6 @@
 # rchars-rs
 
-Creates N alphanumeric characters.
+Creates N random ASCII characters.
 
 ```
 > rchars 10
