@@ -1,8 +1,6 @@
 extern crate rand;
-use rand::{
-    Rng,
-    distributions::Alphanumeric
-};
+
+use rand::Rng;
 use std::{
     error::Error,
     env,
@@ -24,14 +22,18 @@ fn main() {
             }
         };
 
-        let mut rng = thread_rng();
-        let chars: String = iter::repeat(())
-            .map(|_| rng.sample(Alphanumeric))
-            .take(num)
-            .collect();
+        let chars = random_chars(num);
 
         println!("{}", chars);
     } else {
         eprintln!("you need to put the amount of characters to generate");
     }
+}
+
+fn random_chars(num: usize) -> String {
+    let mut rng = thread_rng();
+    iter::repeat(())
+        .map(|_| (0x20u8 + (rng.gen::<f32>() * 96.0) as u8) as char)
+        .take(num)
+        .collect()
 }

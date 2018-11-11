@@ -2,5 +2,5 @@
 
 ```
 > rchars 10
-tUCrcoZH2E
+qxeZ88:]D$
 ```
